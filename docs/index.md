@@ -1,17 +1,30 @@
-# Welcome to MkDocs
+# 👋 歡迎來到 Jason 的技術知識庫
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+這裡記錄了網路管理、AI 工具、投資筆記的實戰經驗，
+所有內容都是親手踩坑後整理出來的。
 
-## Commands
+---
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## 📚 內容分類
 
-## Project layout
+### 🖥️ 網路管理
+- [OpenClaw GCP 安裝指南](network/openclaw-gcp-setup.md) — 含 Tailscale、systemd、常見錯誤排解
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### 🤖 AI 工具
+- [Claude Code 入門](ai/claude-code.md) — 安裝、費用、WSL 環境設定
+
+### 💹 投資筆記
+- 即將新增...
+
+### 📅 每日簡報
+- 即將新增...
+
+---
+
+## 🔍 快速搜尋
+
+使用右上角的搜尋功能，可以快速找到任何關鍵字。
+
+---
+
+> 持續更新中 | 最後更新：2026-03
