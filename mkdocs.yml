@@ -36,6 +36,7 @@ nav:
   - 首頁: index.md
   - 網路管理:
     - OpenClaw 部署指南: network/openclaw-setup.md
+    - OpenClaw GCP 安裝指南: network/openclaw-gcp-安裝指南-v2_9 - open.md
     - Tailscale 設定: network/tailscale.md
   - AI 工具:
     - Claude Code 入門: ai/claude-code.md
