@@ -1,0 +1,2260 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="網路管理、AI工具、投資筆記">
+      
+      
+        <meta name="author" content="Jason">
+      
+      
+        <link rel="canonical" href="https://syuming.github.io/my-knowledge-base/network/openclaw-mission-control-%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97-v1_3/">
+      
+      
+        <link rel="prev" href="../openclaw-gcp-%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97-v2_9/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>OpenClaw Mission Control 完整安裝指南 - Jason 的技術知識庫</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openclaw-mission-control" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="Jason 的技術知識庫" class="md-header__button md-logo" aria-label="Jason 的技術知識庫" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jason 的技術知識庫
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenClaw Mission Control 完整安裝指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切換深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切換淺色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換淺色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  👋 歡迎來到 Jason 的技術知識庫
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/claude-code/" class="md-tabs__link">
+          
+  
+  
+  Ai
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../briefings/" class="md-tabs__link">
+          
+  
+  
+  Briefings
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../finance/" class="md-tabs__link">
+          
+  
+  
+  Finance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../openclaw-gcp-%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97-v2_9/" class="md-tabs__link">
+          
+  
+  
+  Network
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Jason 的技術知識庫" class="md-nav__button md-logo" aria-label="Jason 的技術知識庫" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Jason 的技術知識庫
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👋 歡迎來到 Jason 的技術知識庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ai
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ai
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    即將新增
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Briefings
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Briefings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../briefings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    即將新增
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Finance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Finance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../finance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    即將新增
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclaw-gcp-%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97-v2_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenClaw on GCP 完整安裝操作指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenClaw Mission Control 完整安裝指南
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenClaw Mission Control 完整安裝指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前置確認清單
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架構說明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 1：安裝 Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 2：Clone 專案
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 3：設定環境變數
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 3：設定環境變數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        複製設定檔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        關閉 Clerk 認證（本地自架不需要）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local_auth_token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        產生 LOCAL_AUTH_TOKEN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backendenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修正 backend/.env
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修正根目錄 .env
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-tailscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 4：設定 Tailscale 服務對應
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-45-openclaw-tailscale-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 4.5：關閉 OpenClaw 自動覆蓋 Tailscale Serve（必做！）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 5：啟動所有容器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-gateway-socat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 6：設定 Gateway 連線（socat 轉發）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 6：設定 Gateway 連線（socat 轉發）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#socat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝 socat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        建立 systemd 服務
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7mission-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 7：設定開機自動啟動（Mission Control）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-openclaw-allowedorigins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 8：更新 OpenClaw allowedOrigins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-mission-control-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 9：登入 Mission Control 並連接 Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 9：登入 Mission Control 並連接 Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        登入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        連接 Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        裝置配對
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整服務清單
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日常維護指令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常見問題排查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tailscale-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查：Tailscale Port 對應跑回舊設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排查：Tailscale Port 對應跑回舊設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        症狀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修復步驟
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pairing-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修復完成後，若新電腦出現 pairing required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openclaw-tailscale-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查：openclaw 重啟後 Tailscale Serve 設定跑掉
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排查：openclaw 重啟後 Tailscale Serve 設定跑掉">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        症狀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tailscalemode-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根治解法：將 tailscale.mode 設為 off
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        網址總覽
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前置確認清單
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架構說明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 1：安裝 Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 2：Clone 專案
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 3：設定環境變數
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 3：設定環境變數">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        複製設定檔
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        關閉 Clerk 認證（本地自架不需要）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local_auth_token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        產生 LOCAL_AUTH_TOKEN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backendenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修正 backend/.env
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修正根目錄 .env
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-tailscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 4：設定 Tailscale 服務對應
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-45-openclaw-tailscale-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 4.5：關閉 OpenClaw 自動覆蓋 Tailscale Serve（必做！）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 5：啟動所有容器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-gateway-socat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 6：設定 Gateway 連線（socat 轉發）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 6：設定 Gateway 連線（socat 轉發）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#socat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝 socat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        建立 systemd 服務
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7mission-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 7：設定開機自動啟動（Mission Control）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-openclaw-allowedorigins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 8：更新 OpenClaw allowedOrigins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-mission-control-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STEP 9：登入 Mission Control 並連接 Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STEP 9：登入 Mission Control 並連接 Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        登入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        連接 Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        裝置配對
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整服務清單
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日常維護指令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常見問題排查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tailscale-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查：Tailscale Port 對應跑回舊設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排查：Tailscale Port 對應跑回舊設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        症狀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修復步驟
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pairing-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修復完成後，若新電腦出現 pairing required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openclaw-tailscale-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查：openclaw 重啟後 Tailscale Serve 設定跑掉
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排查：openclaw 重啟後 Tailscale Serve 設定跑掉">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        症狀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原因
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tailscalemode-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根治解法：將 tailscale.mode 設為 off
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        網址總覽
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openclaw-mission-control">OpenClaw Mission Control 完整安裝指南</h1>
+<blockquote>
+<p>v1.3 · 2026-03-08<br />
+適用環境：GCP Ubuntu VM (e2-medium, 30GB)、已安裝 OpenClaw Gateway、已設定 Tailscale</p>
+</blockquote>
+<hr />
+<h2 id="_1">前置確認清單</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCP VM</td>
+<td>e2-medium（2 vCPU, 4GB RAM）以上</td>
+</tr>
+<tr>
+<td>磁碟空間</td>
+<td>至少 10GB 剩餘空間（<code>df -h</code> 確認）</td>
+</tr>
+<tr>
+<td>OpenClaw Gateway</td>
+<td>已安裝並以 systemd 管理（<code>sudo systemctl status openclaw</code>）</td>
+</tr>
+<tr>
+<td>Tailscale</td>
+<td>已設定並取得 Tailnet URL</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>磁碟空間不足</strong>：Docker build 需要約 3～5GB，建議根目錄剩餘 10GB 以上再開始。</p>
+</blockquote>
+<hr />
+<h2 id="_2">架構說明</h2>
+<p>Mission Control 包含四個容器：</p>
+<table>
+<thead>
+<tr>
+<th>容器</th>
+<th>說明</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>frontend</td>
+<td>Next.js 網頁介面</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>backend</td>
+<td>FastAPI REST API</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>db</td>
+<td>PostgreSQL 資料庫</td>
+<td>5432（僅內部）</td>
+</tr>
+<tr>
+<td>redis</td>
+<td>Redis 工作佇列</td>
+<td>6379（僅內部）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="step-1-docker">STEP 1：安裝 Docker</h2>
+<pre><code class="language-bash">curl -fsSL https://get.docker.com | bash
+sudo usermod -aG docker $USER
+newgrp docker
+</code></pre>
+<p>確認版本：</p>
+<pre><code class="language-bash">docker --version &amp;&amp; docker compose version
+</code></pre>
+<blockquote>
+<p>✅ 正確結果：<code>Docker version 29.x.x</code> 和 <code>Docker Compose version v5.x.x</code></p>
+</blockquote>
+<hr />
+<h2 id="step-2clone">STEP 2：Clone 專案</h2>
+<pre><code class="language-bash">cd ~
+git clone https://github.com/abhi1693/openclaw-mission-control.git
+cd openclaw-mission-control
+</code></pre>
+<hr />
+<h2 id="step-3">STEP 3：設定環境變數</h2>
+<h3 id="_3">複製設定檔</h3>
+<pre><code class="language-bash">cp .env.example .env
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+</code></pre>
+<h3 id="clerk">關閉 Clerk 認證（本地自架不需要）</h3>
+<pre><code class="language-bash">sed -i 's/^NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=.*/NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=/' frontend/.env.local
+</code></pre>
+<h3 id="local_auth_token">產生 LOCAL_AUTH_TOKEN</h3>
+<pre><code class="language-bash">TOKEN=$(openssl rand -hex 32)
+echo &quot;TOKEN: $TOKEN&quot;  # 記下這串，登入時需要用到
+</code></pre>
+<h3 id="backendenv">修正 backend/.env</h3>
+<pre><code class="language-bash"># 修正資料庫連線（localhost → db）
+sed -i 's|postgresql+psycopg://postgres:postgres@localhost:5432|postgresql+psycopg://postgres:postgres@db:5432|' backend/.env
+
+# 修正 Redis 連線（localhost → redis）
+sed -i 's|redis://localhost:6379|redis://redis:6379|' backend/.env
+
+# 填入 LOCAL_AUTH_TOKEN
+sed -i &quot;s|LOCAL_AUTH_TOKEN=|LOCAL_AUTH_TOKEN=$TOKEN|&quot; backend/.env
+
+# 填入 BASE_URL（換成你的 Tailscale URL）
+sed -i 's|^BASE_URL=$|BASE_URL=https://你的tailscale網址|' backend/.env
+
+# 填入 CORS_ORIGINS
+sed -i 's|^CORS_ORIGINS=.*|CORS_ORIGINS=http://localhost:3000,https://你的tailscale網址,https://你的tailscale網址:8443|' backend/.env
+</code></pre>
+<h3 id="env">修正根目錄 .env</h3>
+<pre><code class="language-bash"># 移除空的 LOCAL_AUTH_TOKEN 行
+sed -i '/^LOCAL_AUTH_TOKEN=$/d' .env
+
+# 填入必要變數
+echo &quot;LOCAL_AUTH_TOKEN=$TOKEN&quot; &gt;&gt; .env
+echo &quot;AUTH_MODE=local&quot; &gt;&gt; .env
+echo &quot;BASE_URL=https://你的tailscale網址&quot; &gt;&gt; .env
+echo &quot;CORS_ORIGINS=http://localhost:3000,https://你的tailscale網址,https://你的tailscale網址:8443&quot; &gt;&gt; .env
+
+# 修正 NEXT_PUBLIC_API_URL（換成你的 Tailscale URL + :8443）
+sed -i 's|^NEXT_PUBLIC_API_URL=.*|NEXT_PUBLIC_API_URL=https://你的tailscale網址:8443|' .env
+</code></pre>
+<p>確認所有關鍵變數：</p>
+<pre><code class="language-bash">grep -E &quot;LOCAL_AUTH_TOKEN|AUTH_MODE|BASE_URL|CORS_ORIGINS|NEXT_PUBLIC_API_URL&quot; .env
+grep -E &quot;DATABASE_URL|RQ_REDIS_URL|LOCAL_AUTH_TOKEN|BASE_URL|CORS_ORIGINS&quot; backend/.env
+</code></pre>
+<hr />
+<h2 id="step-4-tailscale">STEP 4：設定 Tailscale 服務對應</h2>
+<pre><code class="language-bash"># 預設 443 → Mission Control
+tailscale serve --bg --https=443 localhost:3000
+
+# 8443 → Backend API
+tailscale serve --bg --https=8443 localhost:8000
+
+# 8444 → OpenClaw Gateway UI（原本的介面）
+tailscale serve --bg --https=8444 localhost:18789
+
+# 確認
+tailscale serve status
+</code></pre>
+<blockquote>
+<p>✅ 完成後服務對應：
+- <code>https://你的tailscale網址</code> → Mission Control
+- <code>https://你的tailscale網址:8443</code> → Backend API
+- <code>https://你的tailscale網址:8444</code> → OpenClaw Gateway UI</p>
+</blockquote>
+<hr />
+<h2 id="step-45-openclaw-tailscale-serve">STEP 4.5：關閉 OpenClaw 自動覆蓋 Tailscale Serve（必做！）</h2>
+<blockquote>
+<p>⚠️ <strong>這個步驟非常重要，跳過的話每次 openclaw 重啟都會把 443 設定蓋回 18789。</strong></p>
+</blockquote>
+<p>OpenClaw Gateway 預設啟動時會自動呼叫 <code>tailscale serve</code>，將 443 指向自己（18789），覆蓋掉 STEP 4 的設定。透過修改 <code>openclaw.json</code> 把這個行為關掉，才能讓 Mission Control 的 443 設定永久生效。</p>
+<pre><code class="language-bash">sudo systemctl stop openclaw
+
+python3 -c &quot;
+import json
+with open('/home/jason/.openclaw/openclaw.json', 'r') as f:
+    c = json.load(f)
+c['gateway']['tailscale']['mode'] = 'off'
+with open('/home/jason/.openclaw/openclaw.json', 'w') as f:
+    json.dump(c, f, indent=2, ensure_ascii=False)
+print('完成！tailscale mode:', c['gateway']['tailscale']['mode'])
+&quot;
+
+sudo systemctl start openclaw
+sleep 10
+tailscale serve status
+</code></pre>
+<blockquote>
+<p>✅ 443 仍然指向 <code>localhost:3000</code> 表示設定成功，之後不管 openclaw 重啟幾次都不會再覆蓋。</p>
+<p>⚠️ <code>jason</code> 換成你的實際帳號（<code>whoami</code> 確認）</p>
+</blockquote>
+<hr />
+<h2 id="step-5">STEP 5：啟動所有容器</h2>
+<pre><code class="language-bash">docker compose -f compose.yml --env-file .env up -d --build
+</code></pre>
+<blockquote>
+<p>⏱️ 第一次 build 需要 5～15 分鐘，耐心等候。</p>
+</blockquote>
+<p>確認狀態：</p>
+<pre><code class="language-bash">docker compose -f compose.yml --env-file .env ps
+curl http://localhost:8000/healthz
+</code></pre>
+<blockquote>
+<p>✅ 正確結果：五個容器全部 <code>Up</code>，healthz 回傳 <code>{"ok":true}</code></p>
+</blockquote>
+<hr />
+<h2 id="step-6-gateway-socat">STEP 6：設定 Gateway 連線（socat 轉發）</h2>
+<p>Mission Control 跑在 Docker 容器內，無法直接連到 VM 的 <code>127.0.0.1:18789</code>，需要用 socat 做 Port 轉發。</p>
+<h3 id="socat">安裝 socat</h3>
+<pre><code class="language-bash">sudo apt install -y socat
+</code></pre>
+<h3 id="systemd">建立 systemd 服務</h3>
+<pre><code class="language-bash">sudo tee /etc/systemd/system/socat-gateway.service &lt;&lt; 'EOF'
+[Unit]
+Description=Socat Gateway Port Forward 18790-&gt;18789
+After=network.target openclaw.service
+Requires=openclaw.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/socat TCP-LISTEN:18790,fork,reuseaddr TCP:127.0.0.1:18789
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable socat-gateway
+sudo systemctl start socat-gateway
+sudo systemctl status socat-gateway | head -5
+</code></pre>
+<blockquote>
+<p>✅ 正確結果：<code>Active: active (running)</code></p>
+</blockquote>
+<hr />
+<h2 id="step-7mission-control">STEP 7：設定開機自動啟動（Mission Control）</h2>
+<pre><code class="language-bash">sudo tee /etc/systemd/system/openclaw-mission-control.service &lt;&lt; 'EOF'
+[Unit]
+Description=OpenClaw Mission Control
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/jason/openclaw-mission-control
+ExecStart=/usr/bin/docker compose -f compose.yml --env-file .env up -d
+ExecStop=/usr/bin/docker compose -f compose.yml --env-file .env down
+User=jason
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable openclaw-mission-control
+</code></pre>
+<blockquote>
+<p>⚠️ <code>User=jason</code> 換成你的實際帳號（<code>whoami</code> 確認）</p>
+</blockquote>
+<hr />
+<h2 id="step-8-openclaw-allowedorigins">STEP 8：更新 OpenClaw allowedOrigins</h2>
+<p>把新的 Tailscale URL（含 8444 port）加入 OpenClaw 白名單：</p>
+<pre><code class="language-bash">sudo systemctl stop openclaw
+
+python3 -c &quot;
+import json
+with open('/home/jason/.openclaw/openclaw.json', 'r') as f:
+    c = json.load(f)
+origins = c['gateway'].get('controlUi', {}).get('allowedOrigins', [])
+for url in ['https://你的tailscale網址', 'https://你的tailscale網址:8444']:
+    if url not in origins:
+        origins.append(url)
+c['gateway'].setdefault('controlUi', {})['allowedOrigins'] = origins
+with open('/home/jason/.openclaw/openclaw.json', 'w') as f:
+    json.dump(c, f, indent=2, ensure_ascii=False)
+print('allowedOrigins:', origins)
+&quot;
+
+sudo systemctl start openclaw
+</code></pre>
+<hr />
+<h2 id="step-9-mission-control-gateway">STEP 9：登入 Mission Control 並連接 Gateway</h2>
+<h3 id="_4">登入</h3>
+<ol>
+<li>開瀏覽器前往 <code>https://你的tailscale網址</code></li>
+<li>填入 Profile（Name、Timezone: Asia/Taipei）</li>
+<li>填入 Access Token（STEP 3 產生的 <code>$TOKEN</code>）</li>
+</ol>
+<h3 id="gateway">連接 Gateway</h3>
+<ol>
+<li>
+<p>點左側選單 <strong>Gateways</strong> → <strong>Create gateway</strong></p>
+</li>
+<li>
+<p>填入：</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>填入值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gateway name</td>
+<td><code>GCP Primary</code></td>
+</tr>
+<tr>
+<td>Gateway URL</td>
+<td><code>ws://172.17.0.1:18790</code></td>
+</tr>
+<tr>
+<td>Gateway token</td>
+<td>OpenClaw 的 token（見下方指令）</td>
+</tr>
+<tr>
+<td>Workspace root</td>
+<td><code>~/.openclaw</code></td>
+</tr>
+</tbody>
+</table>
+<p>取得 OpenClaw Token：</p>
+<pre><code class="language-bash">grep '&quot;token&quot;' ~/.openclaw/openclaw.json
+</code></pre>
+<ol>
+<li>按 <strong>Create gateway</strong>，出現 <code>pairing required</code> 表示連線成功</li>
+</ol>
+<h3 id="_5">裝置配對</h3>
+<pre><code class="language-bash">openclaw devices list
+openclaw devices approve &lt;requestId&gt;
+</code></pre>
+<hr />
+<h2 id="_6">完整服務清單</h2>
+<table>
+<thead>
+<tr>
+<th>服務</th>
+<th>管理方式</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>openclaw</code></td>
+<td>systemd</td>
+<td>OpenClaw Gateway</td>
+</tr>
+<tr>
+<td><code>socat-gateway</code></td>
+<td>systemd</td>
+<td>Port 轉發 18790→18789</td>
+</tr>
+<tr>
+<td><code>openclaw-mission-control</code></td>
+<td>systemd</td>
+<td>Docker Compose 自動啟動</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">日常維護指令</h2>
+<pre><code class="language-bash"># 確認所有服務狀態
+sudo systemctl status openclaw socat-gateway openclaw-mission-control
+
+# Mission Control 容器狀態
+cd ~/openclaw-mission-control
+docker compose -f compose.yml --env-file .env ps
+
+# 即時查看 log
+sudo journalctl -u openclaw -f
+docker compose -f compose.yml --env-file .env logs -f backend
+docker compose -f compose.yml --env-file .env logs -f frontend
+
+# 重啟 Mission Control
+docker compose -f compose.yml --env-file .env restart
+</code></pre>
+<hr />
+<h2 id="_8">常見問題排查</h2>
+<table>
+<thead>
+<tr>
+<th>症狀</th>
+<th>原因</th>
+<th>解法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Unable to reach backend to validate token</code></td>
+<td>Frontend 打到錯誤的 API URL</td>
+<td>確認 <code>NEXT_PUBLIC_API_URL</code> 設定，重新 build frontend</td>
+</tr>
+<tr>
+<td><code>CORS error</code></td>
+<td>Backend CORS 白名單未包含 Tailscale URL</td>
+<td>更新 <code>CORS_ORIGINS</code>，重啟 backend</td>
+</tr>
+<tr>
+<td><code>[Errno 111] Connection refused</code></td>
+<td>Gateway 只綁定 127.0.0.1，Docker 無法連到</td>
+<td>確認 socat-gateway 服務有在跑</td>
+</tr>
+<tr>
+<td><code>pairing required</code></td>
+<td>新裝置（瀏覽器）需要配對</td>
+<td><code>openclaw devices list</code> → <code>approve</code></td>
+</tr>
+<tr>
+<td>容器一直重啟</td>
+<td><code>.env</code> 變數缺少或錯誤</td>
+<td>查看 log：<code>docker compose logs &lt;服務名&gt;</code></td>
+</tr>
+<tr>
+<td>重開機後容器消失</td>
+<td>未設定 systemd 自動啟動</td>
+<td>執行 STEP 7</td>
+</tr>
+<tr>
+<td><strong>換電腦連線後，443 port 又跑回 OpenClaw Gateway，而不是 Mission Control</strong></td>
+<td>安裝 OpenClaw 時留下的舊 Tailscale Serve 設定（443 → 18789）沒有被正確覆蓋</td>
+<td>參考下方「Tailscale Port 對應跑回舊設定」排查流程</td>
+</tr>
+<tr>
+<td><strong>openclaw 重啟後 443 又跑回 18789</strong></td>
+<td>openclaw 預設啟動時會自動覆蓋 Tailscale Serve 設定</td>
+<td>執行 STEP 4.5，將 <code>tailscale.mode</code> 設為 <code>off</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tailscale-port">排查：Tailscale Port 對應跑回舊設定</h2>
+<h3 id="_9">症狀</h3>
+<p>換到另一台電腦連線後，發現 <code>https://你的tailscale網址</code> 顯示的還是舊的 OpenClaw Gateway UI，而不是 Mission Control。</p>
+<h3 id="_10">原因</h3>
+<p>安裝 OpenClaw Gateway 時，教學指南第十節會執行：</p>
+<pre><code class="language-bash">tailscale serve localhost:18789
+</code></pre>
+<p>這個指令會把 <strong>443 → 18789</strong> 寫入 Tailscale 的永久設定檔（存在 VM 端）。<br />
+如果 Mission Control 的 STEP 4 沒有成功覆蓋這筆設定，舊的對應就會繼續生效。</p>
+<blockquote>
+<p>⚠️ Tailscale Serve 設定存在 <strong>VM 端</strong>，不是你的電腦上。在家裡覆蓋成功不代表設定一直是對的，換電腦時可以用 <code>tailscale serve status</code> 立刻確認現況。</p>
+</blockquote>
+<h3 id="_11">修復步驟</h3>
+<p>SSH 進入 GCP VM 執行：</p>
+<pre><code class="language-bash"># 1. 確認目前設定（應該會看到 443 → 18789）
+tailscale serve status
+
+# 2. 移除舊的 443 設定
+tailscale serve --https=443 off
+
+# 3. 重新正確配置
+tailscale serve --bg --https=443 localhost:3000     # Mission Control
+tailscale serve --bg --https=8443 localhost:8000    # Backend API
+tailscale serve --bg --https=8444 localhost:18789   # OpenClaw Gateway UI
+
+# 4. 確認設定正確
+tailscale serve status
+</code></pre>
+<p>正確結果：</p>
+<pre><code>443  → localhost:3000   ✅ Mission Control
+8443 → localhost:8000   ✅ Backend API
+8444 → localhost:18789  ✅ OpenClaw Gateway UI
+</code></pre>
+<h3 id="pairing-required">修復完成後，若新電腦出現 pairing required</h3>
+<p>公司或新裝置是第一次連線，需要在 VM 上核准配對：</p>
+<pre><code class="language-bash"># 查看待配對裝置
+openclaw devices list
+
+# 核准（填入 Pending 欄位的 requestId）
+openclaw devices approve &lt;requestId&gt;
+</code></pre>
+<p>核准後重新整理瀏覽器即可。</p>
+<hr />
+<h2 id="openclaw-tailscale-serve">排查：openclaw 重啟後 Tailscale Serve 設定跑掉</h2>
+<h3 id="_12">症狀</h3>
+<p>每次 <code>sudo systemctl restart openclaw</code> 之後，<code>tailscale serve status</code> 顯示 443 又跑回指向 <code>127.0.0.1:18789</code>（OpenClaw），而不是 <code>localhost:3000</code>（Mission Control）。</p>
+<h3 id="_13">原因</h3>
+<p>OpenClaw Gateway 的 <code>openclaw.json</code> 裡有一個 <code>tailscale.mode</code> 設定，預設值是 <code>serve</code>，代表每次啟動都會自動呼叫 <code>tailscale serve</code> 將 443 指向自己（18789），把 Mission Control 的設定覆蓋掉。</p>
+<h3 id="tailscalemode-off">根治解法：將 tailscale.mode 設為 off</h3>
+<blockquote>
+<p>⚠️ <code>jason</code> 換成你的實際帳號</p>
+</blockquote>
+<pre><code class="language-bash">sudo systemctl stop openclaw
+
+python3 -c &quot;
+import json
+with open('/home/jason/.openclaw/openclaw.json', 'r') as f:
+    c = json.load(f)
+c['gateway']['tailscale']['mode'] = 'off'
+with open('/home/jason/.openclaw/openclaw.json', 'w') as f:
+    json.dump(c, f, indent=2, ensure_ascii=False)
+print('完成！tailscale mode:', c['gateway']['tailscale']['mode'])
+&quot;
+
+sudo systemctl start openclaw
+sleep 10
+tailscale serve status
+</code></pre>
+<blockquote>
+<p>✅ 443 仍然指向 <code>localhost:3000</code> 即代表根治成功。之後不管 openclaw 重啟幾次都不會再覆蓋。</p>
+</blockquote>
+<hr />
+<h2 id="_14">網址總覽</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>網址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mission Control</strong></td>
+<td><code>https://你的tailscale網址</code></td>
+</tr>
+<tr>
+<td><strong>OpenClaw Gateway UI</strong></td>
+<td><code>https://你的tailscale網址:8444</code></td>
+</tr>
+<tr>
+<td><strong>Backend API healthz</strong></td>
+<td><code>https://你的tailscale網址:8443/healthz</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
