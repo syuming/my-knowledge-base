@@ -32,16 +32,3 @@ plugins:
   - search:
       lang: zh
 
-nav:
-  - 首頁: index.md
-  - 網路管理:
-    - OpenClaw 部署指南: network/openclaw-setup.md
-    - OpenClaw GCP 安裝指南: network/openclaw-gcp-安裝指南-v2_9.md
-    - Tailscale 設定: network/tailscale.md
-  - AI 工具:
-    - Claude Code 入門: ai/claude-code.md
-    - API 成本優化: ai/api-cost.md
-  - 投資筆記:
-    - MGC 期貨策略: finance/mgc-futures.md
-  - 每日簡報:
-    - 2026-03-17: briefings/2026-03-17.md
