@@ -1,0 +1,23 @@
+# 敏感檔案
+.env
+.env.local
+.env.production
+*.key
+*.pem
+secrets.yml
+credentials.json
+
+# MkDocs 編譯輸出（不需要上傳，GitHub Actions 會自動產生）
+site/
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# VSCode
+.vscode/
