@@ -8,7 +8,7 @@
 ## 📚 內容分類
 
 ### 🖥️ 網路管理
-- [OpenClaw GCP 安裝指南](network/openclaw-gcp-安裝指南-v2_9 - open.md) — 含 Tailscale、systemd、常見錯誤排解
+- [OpenClaw GCP 安裝指南](network/openclaw-gcp-安裝指南-v2_9.md) — 含 Tailscale、systemd、常見錯誤排解
 
 ### 🤖 AI 工具
 - [Claude Code 入門](ai/claude-code.md) — 安裝、費用、WSL 環境設定
