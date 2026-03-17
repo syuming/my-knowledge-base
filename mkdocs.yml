@@ -1,0 +1,46 @@
+site_name: Jason 的技術知識庫
+site_url: https://syuming.github.io/my-knowledge-base/
+site_description: 網路管理、AI工具、投資筆記
+site_author: Jason
+
+theme:
+  name: material
+  language: zh-TW
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: 切換深色模式
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: 切換淺色模式
+  features:
+    - navigation.tabs          # 頂部分頁導航
+    - navigation.sections      # 側邊欄分組
+    - navigation.expand        # 自動展開
+    - navigation.top           # 回到頂部按鈕
+    - search.highlight         # 搜尋高亮
+    - search.suggest           # 搜尋建議
+    - content.code.copy        # 程式碼複製按鈕
+
+plugins:
+  - search:
+      lang: zh
+
+nav:
+  - 首頁: index.md
+  - 網路管理:
+    - OpenClaw 部署指南: network/openclaw-setup.md
+    - Tailscale 設定: network/tailscale.md
+  - AI 工具:
+    - Claude Code 入門: ai/claude-code.md
+    - API 成本優化: ai/api-cost.md
+  - 投資筆記:
+    - MGC 期貨策略: finance/mgc-futures.md
+  - 每日簡報:
+    - 2026-03-17: briefings/2026-03-17.md
